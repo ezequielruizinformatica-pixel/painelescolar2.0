@@ -1,1 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Painel Escolar</title>
 
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: white;
+}
+
+header {
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 20px;
+    background: rgba(0,0,0,0.3);
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    padding: 15px;
+}
+
+.card {
+    background: rgba(255,255,255,0.1);
+    border-radius: 15px;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
+}
+
+.card h2 {
+    margin-top: 0;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 5px;
+}
+
+/* Relógio */
+#hora {
+    font-size: 40px;
+    text-align: center;
+}
+
+/* Aniversariantes */
+.aniversario {
+    position: relative;
+    padding: 5px;
+}
+
+.balao {
+    position: absolute;
+    width: 20px;
+    height: 30px;
+    background: red;
+    border-radius: 50%;
+    animation: subir 5s infinite;
+}
+
+@keyframes subir {
+    0% { bottom: 0; opacity: 1; }
+    100% { bottom: 100px; opacity: 0; }
+}
+
+.balao:nth-child(1) { left: 10px; background: red; }
+.balao:nth-child(2) { left: 30px; background: yellow; }
+.balao:nth-child(3) { left: 50px; background: blue; }
+
+/* Responsivo TV */
+@media (max-width: 1000px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>PAINEL DE NOTÍCIAS 2026 - EZEQUIEL RUIZ</header>
+
+<div class="container">
+
+<!-- HORÁRIO -->
+<div class="card">
+    <h2>⏰ Horário</h2>
+    <div id="hora"></div>
+</div>
+
+<!-- AVISOS -->
+<div class="card">
+    <h2>📢 Avisos</h2>
+    <p>Reunião pedagógica sexta-feira.</p>
+    <p>Prova de matemática na próxima semana.</p>
+</div>
+
+<!-- CURIOSIDADES -->
+<div class="card">
+    <h2>🧠 Curiosidades</h2>
+    <p>Você sabia? O primeiro computador ocupava uma sala inteira!</p>
+</div>
+
+<!-- CLIMA -->
+<div class="card">
+    <h2>🌦️ Clima</h2>
+    <p>Manaus: 30°C 🌤️</p>
+</div>
+
+<!-- DATAS -->
+<div class="card">
+    <h2>📅 Datas Comemorativas</h2>
+    <p>01/04 - Dia da Mentira</p>
+    <p>21/04 - Tiradentes</p>
+</div>
+
+<!-- ANIVERSARIANTES -->
+<div class="card">
+    <h2>🎂 Aniversariantes do Mês</h2>
+
+    <h3>🌅 Matutino</h3>
+    <div class="aniversario">
+        João - 05/04
+        <div class="balao"></div>
+        <div class="balao"></div>
+        <div class="balao"></div>
+    </div>
+
+    <h3>🌇 Vespertino</h3>
+    <div class="aniversario">
+        Maria - 12/04
+        <div class="balao"></div>
+        <div class="balao"></div>
+        <div class="balao"></div>
+    </div>
+
+    <h3>🧑‍💼 Funcionários</h3>
+    <div class="aniversario">
+        Prof. Carlos - 20/04
+        <div class="balao"></div>
+        <div class="balao"></div>
+        <div class="balao"></div>
+    </div>
+
+</div>
+
+</div>
+
+<script>
+// RELÓGIO AUTOMÁTICO
+function atualizarHora() {
+    const agora = new Date();
+    const hora = agora.toLocaleTimeString();
+    document.getElementById("hora").innerText = hora;
+}
+
+setInterval(atualizarHora, 1000);
+atualizarHora();
+</script>
+
+</body>
+</html>
